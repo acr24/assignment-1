@@ -21,10 +21,10 @@ class Hospital
       Scanner scan = new Scanner(System.in);
       System.out.println("Do you want to add to the list of owners? y/n");
       String s = scan.next();
-      if(s.equals("y"))
+      if(s.toLowerCase().equals("y"))
       {
          String s2="y";
-         while(s2.equals("y"))
+         while(s2.toLowerCase().equals("y"))
          {
             System.out.println("How many pets does the owner own? Cannot be more than 5.");
             int numOfPets = Integer.parseInt(scan.next());
@@ -52,7 +52,7 @@ class Hospital
             }
             System.out.println("Please enter ID number: ");
             String id = scan.next();
-            if(!(pNumber.matches("[0-9]+") && pNumber.length()==4))
+            if(!(id.matches("[0-9]+") && id.length()==4))
             {
                System.out.println("Invalid ID number");
                continue;
@@ -84,20 +84,21 @@ class Hospital
        String idSearch;
        System.out.println("Do you want to see the entire list or search?: list or search");
        idSearch = scan.next();
-       if(idSearch.equals("list"))
+       if(idSearch.toLowerCase().equals("list"))
        {
          for(int i = 0; i<owners.length;i++)
          {
             if(owners[i]!=null)
             {
                 System.out.println(owners[i].toString());
-               System.out.println(owners[i].getArrayInfo());
+               //System.out.println(owners[i].getArrayInfo());
+               owners[i].getArrayInfo();
               
             }
             
          }
        }
-       if(idSearch.equals("search"))
+       if(idSearch.toLowerCase().equals("search"))
        {
          String idNumberSearch;
          System.out.println("Please enter ID number: ");

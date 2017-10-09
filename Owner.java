@@ -15,31 +15,34 @@ class Owner
     {
       return idNumber;
     } 
-    public String getArrayInfo()
+    public void getArrayInfo()
     {
-      //Pet[] pets = new Pet[arrayOfPets.length];
+      //String[] pets = new String[arrayOfPets.length];
       //Pet[] pets = arrayOfPets;
       for(int i=0;i<arrayOfPets.length;i++)
       {
-         if(arrayOfPets[0]!=null)
+         if(arrayOfPets[0]!=null&&arrayOfPets.length>0)
             {
-               //pets[i]= arrayOfPets[i];
-               //return pets[i].toString;
-               //System.out.println(arrayOfPets[i].toString());
+               //return arrayOfPets.toString();
+               //pets[i]= arrayOfPets[i].toString();
+               //return pets[i].toString();
+              // System.out.println(arrayOfPets[i].toString());
+             
                //return pets;
-               return arrayOfPets[i].toString();
+               //return this.arrayOfPets[i].toString();
+               
             }
          else
          {
-            System.out.println("No pets");
+            System.out.println("end of file");
             break;
          }
-         //return arrayOfPets[i].toString();
-         //return pets[i].toString();
+         System.out.println(arrayOfPets[i].toString());
+         
        }
      
-      //return arrayOfPets.toString();
-      //return pets.toString();
+         //return arrayOfPets[i].toString();
+     
     }
     public void addPet(Pet newPet)
     {
@@ -59,7 +62,19 @@ class Owner
       
     public String toString()
     {
-      return firstName+" "+lastName+", "+eAddress+", "+idNumber+", "+phoneNumber+", owns "+arrayOfPets.length+" pets";
+      int length=0;
+      for(int i=0;i<arrayOfPets.length;i++)
+      {
+         if(arrayOfPets[i]==null)
+         {
+            continue;
+          }
+          else
+          {
+            length++;
+          }
+      }
+      return firstName+" "+lastName+", "+eAddress+", "+idNumber+", "+phoneNumber+", owns "+integer.toString(length)+" pets";
      }
 }
 
